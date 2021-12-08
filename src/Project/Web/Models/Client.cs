@@ -17,25 +17,21 @@ namespace BookStore.Web.BookStore.Models
     public string MiddleName { get; set; }
     public DateTime DateBirth { get; set; }
     #endregion
-
     /// <summary>
     /// ID клиента
     /// </summary>
-    public Guid PurchaseId { get; set; }
-    
+    public Guid ClientId { get; set; }
     /// <summary>
-    /// Адрес покупателя
+    /// Адрес клиента
     /// </summary>
     public string Address { get; set; }
     /// <summary>
-    /// Почта
+    /// Электронная Почта
     /// </summary>
     public string Email { get; set; }
     /// <summary>
     /// Телефон
     /// </summary>
     public string Phone { get; set; }
-
-
   }
 }

@@ -17,7 +17,7 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// Id Клиента
     /// </summary>
-    public Guid PurchaseId { get; set; }
+    public Guid ClientId { get; set; }
     /// <summary>
     /// Id Книги
     /// </summary>
