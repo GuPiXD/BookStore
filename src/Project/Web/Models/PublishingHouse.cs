@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BookStore.Web.BookStore.Models
 {
@@ -10,14 +11,14 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// Издательство ID
     /// </summary>
-    public Guid PublishingHouseId { get; set; }
+    public Guid Id { get; set; }
     /// <summary>
     /// Имя Издательства
     /// </summary>
     public string Name { get; set; }
     /// <summary>
-    /// ID книг
+    /// Книги
     /// </summary>
-    public Guid[] BookId { get; set; }
+    public List<Book> Books { get; set; } = new List<Book>();
   }
 }

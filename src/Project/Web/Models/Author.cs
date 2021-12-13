@@ -11,7 +11,6 @@ namespace BookStore.Web.BookStore.Models
   public class Author : IPerson
   {
     #region PropertiesIPerson
-    public string FullName { get; set; }
     public string LastName { get; set; }
     public string FirstName { get; set; }
     public string MiddleName { get; set; }
@@ -19,10 +18,13 @@ namespace BookStore.Web.BookStore.Models
     #endregion
 
     /// <summary>
-    /// ID книги
+    /// ID Автор
     /// </summary>
-    public Guid AuthorId { get; set; }
-    public Guid[] BookId { get; set; }
+    public Guid Id { get; set; }
+    /// <summary>
+    /// Книги
+    /// </summary>
+    public List<Book> Books { get; set; } = new List<Book>();
     /// <summary>
     /// Рейтинг - не обязательное поле Null
     /// </summary>

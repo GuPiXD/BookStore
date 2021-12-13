@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,9 +14,13 @@ namespace BookStore.Web.BookStore.Models
     /// </summary>
     public Guid Id { get; set; }
     /// <summary>
-    /// Автор/Авторы книги
+    /// Авторов книги
     /// </summary>
-    public Guid[] AuthorsId { get; set; }
+    public List<Author> Authors { get; set; } = new List<Author>();
+    /// <summary>
+    /// Издательство
+    /// </summary>
+    public PublishingHouse PublishingHouse { get; set; }
     /// <summary>
     /// Тип переплета
     /// </summary>
@@ -40,10 +45,6 @@ namespace BookStore.Web.BookStore.Models
     /// Серия
     /// </summary>
     public string Series { get; set; }
-    /// <summary>
-    /// Издательство
-    /// </summary>
-    public PublishingHouse PublishingHouse { get; set; }
     /// <summary>
     /// Год издания
     /// </summary>

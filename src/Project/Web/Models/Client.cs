@@ -11,7 +11,6 @@ namespace BookStore.Web.BookStore.Models
   public class Client : IPerson
   {
     #region PropertiesIPerson
-    public string FullName { get; set; }
     public string LastName { get; set; }
     public string FirstName { get; set; }
     public string MiddleName { get; set; }
@@ -20,7 +19,7 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// ID клиента
     /// </summary>
-    public Guid ClientId { get; set; }
+    public Guid Id { get; set; }
     /// <summary>
     /// Адрес клиента
     /// </summary>

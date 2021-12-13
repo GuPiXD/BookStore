@@ -13,15 +13,15 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// ID Истори покупоки
     /// </summary>
-    public Guid CheckoutHistoryId { get; set; }
+    public Guid Id { get; set; }
     /// <summary>
     /// Id Клиента
     /// </summary>
-    public Guid ClientId { get; set; }
+    public Client Client { get; set; }
     /// <summary>
     /// Id Книги
     /// </summary>
-    public Guid[] BookId { get; set; }
+    public List<Book> Book { get; set; }
     /// <summary>
     /// Дата оформления заказа
     /// </summary>

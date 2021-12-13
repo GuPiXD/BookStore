@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+  //ViewData["Title"] = "Home Page";
+  Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Книжный магазин</title>
+</head>
+<body>
+  <div>
+    <h3>Распродажа книг</h3>
+    <table>
+      <tr>
+        <td><p>Название книги</p></td>
+        <td><p>Автор         </p></td>
+        <td><p>Цена          </p></td>
+        <td><p>ID товара     </p></td>
+        <td><p>Издательство  </p></td>
+        <td><p>Год издания   </p></td>
+        <td><p>ISBN          </p></td>
+        <td><p>Кол-во страниц</p></td>
+        <td><p>Тип обложки   </p></td>
+      </tr>
+      @foreach (var book in Model)
+      {
+        <tr>
+          <td><p>@book.Name</p></td>
+          <td><p>@book.Authors</p></td>
+          <td><p>@book.Price</p></td>
+          <td><p>@book.Id</p></td>
+          <td><p>@book.PublishingHouse</p></td>
+          <td><p>@book.YearPublishing</p></td>
+          <td><p>@book.ISBN</p></td>
+          <td><p>@book.NumberBooksStock</p></td>
+          <td><p>@book.BindingType</p></td>
+          <td><p><a href="/Home/Buy/@book.Id">Купить</a></p></td>
+        </tr>
+      }
+    </table>
+  </div>
+</body>
+</html>
