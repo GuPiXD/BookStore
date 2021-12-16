@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore", "BookStore.csproj", "{F2989BC3-BB94-4960-9875-B527C3E6B69D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{BAEDE462-5F98-4103-AD10-92ACD7FF8BB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{DC32B79C-3F43-443E-B9B5-5CDF63432D93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{88BDFDFB-28E6-4B29-A419-07C26699EF28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Checkout", "Checkout", "{5C0C4AA5-F5AE-45DD-97EA-A6CCD523C9B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{374942E5-25CA-449C-890C-5F1843D655FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{66C3E0B5-5AC4-4373-9E43-A7D022EB050A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Web.BookStore", "src\Project\Web\BookStore.Web.BookStore.csproj", "{321BD5D8-B174-46F4-BF9E-3CE977E1899D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +23,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F2989BC3-BB94-4960-9875-B527C3E6B69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2989BC3-BB94-4960-9875-B527C3E6B69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2989BC3-BB94-4960-9875-B527C3E6B69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2989BC3-BB94-4960-9875-B527C3E6B69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321BD5D8-B174-46F4-BF9E-3CE977E1899D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321BD5D8-B174-46F4-BF9E-3CE977E1899D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321BD5D8-B174-46F4-BF9E-3CE977E1899D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321BD5D8-B174-46F4-BF9E-3CE977E1899D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C0C4AA5-F5AE-45DD-97EA-A6CCD523C9B2} = {BAEDE462-5F98-4103-AD10-92ACD7FF8BB4}
+		{374942E5-25CA-449C-890C-5F1843D655FD} = {DC32B79C-3F43-443E-B9B5-5CDF63432D93}
+		{66C3E0B5-5AC4-4373-9E43-A7D022EB050A} = {88BDFDFB-28E6-4B29-A419-07C26699EF28}
+		{321BD5D8-B174-46F4-BF9E-3CE977E1899D} = {66C3E0B5-5AC4-4373-9E43-A7D022EB050A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D774EF69-44C8-415F-B9B7-F0AB27ABBE5A}
