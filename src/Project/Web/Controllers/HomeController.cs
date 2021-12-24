@@ -1,6 +1,7 @@
 ﻿using BookStore.Web.BookStore.Models;
 using BookStore.Web.BookStore.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,9 @@ namespace BookStore.Controllers
     public IActionResult Index()
     {
       // возвращаем представление
-      return View(db.Books.ToList());
+      var books = db.Books.Include(b => b.Authors  ).Include(s => s.PublishingHouse);
+
+      return View(books.ToList());
     }
   }
 }
