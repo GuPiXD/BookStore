@@ -12,9 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Checkout", "Checkout", "{5C0C4AA5-F5AE-45DD-97EA-A6CCD523C9B2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{374942E5-25CA-449C-890C-5F1843D655FD}"
-	ProjectSection(SolutionItems) = preProject
-		src\Foundation\Data\BookStoreDatabase.mdf = src\Foundation\Data\BookStoreDatabase.mdf
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{66C3E0B5-5AC4-4373-9E43-A7D022EB050A}"
 EndProject
