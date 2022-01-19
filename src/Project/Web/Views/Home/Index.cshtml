@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Book>
+@{
   //ViewData["Title"] = "Home Page";
   Layout = null;
 }
@@ -13,8 +14,15 @@
 <body>
   <div>
     <h3>Распродажа книг</h3>
-    <table>
-      <tr>
+    <table class="table-dark" class="table"
+                   GridLines="Both" 
+        HorizontalAlign="Center" 
+        Font-Names="Verdana" 
+        Font-Size="8pt" 
+        CellPadding="15" 
+        CellSpacing="0" 
+        Runat="server">
+      <tr class="text-center" class ="text-dark">
         <td><p>Название книги</p></td>
         <td><p>Автор         </p></td>
         <td><p>Цена          </p></td>
@@ -25,18 +33,33 @@
         <td><p>Кол-во страниц</p></td>
         <td><p>Тип обложки   </p></td>
       </tr>
+
       @foreach (var book in Model)
       {
+        var authors = @book.Authors;        
         <tr>
-          <td><p>@book.Name</p></td>
-          <td><p>@book.Authors</p></td>
+          <td><p>@book.Name</p></td>          
+          <td>@foreach(var author in @book.Authors)
+          { 
+            <p>@author.LastName  @author.MiddleName @author.FirstName;</p>
+          }
+          </td>
           <td><p>@book.Price</p></td>
           <td><p>@book.Id</p></td>
-          <td><p>@book.PublishingHouse</p></td>
+          <td><p>@book.PublishingHouse.Name</p></td>
           <td><p>@book.YearPublishing</p></td>
           <td><p>@book.ISBN</p></td>
-          <td><p>@book.NumberBooksStock</p></td>
-          <td><p>@book.BindingType</p></td>
+          <td><p>@book.NumberPages</p></td>
+          <td>
+            @switch (@book.BindingType)
+             {
+               case enBindingType.BracketStaple:
+               case enBindingType.GSB:          <p>Мягкий переплет</p>  break;
+               case enBindingType.SevenBC:
+               case enBindingType.SuperSevenBC: <p>Твердый переплет</p> break;
+               default:                         <p> </p>                break;
+             }
+          </td>
           <td><p><a href="/Home/Buy/@book.Id">Купить</a></p></td>
         </tr>
       }

@@ -16,7 +16,11 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// Авторов книги
     /// </summary>
-    public List<Author> Authors { get; set; } = new List<Author>();
+    public ICollection<Author> Authors { get; set; } = new List<Author>();
+    /// <summary>
+    /// Авторы и книги
+    /// </summary>
+    public List<AuthorBook> AuthorBooks { get; set; } = new List<AuthorBook>();
     /// <summary>
     /// Издательство
     /// </summary>
