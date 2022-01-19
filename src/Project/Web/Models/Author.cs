@@ -24,7 +24,11 @@ namespace BookStore.Web.BookStore.Models
     /// <summary>
     /// Книги
     /// </summary>
-    public List<Book> Books { get; set; } = new List<Book>();
+    public ICollection<Book> Books { get; set; } = new List<Book>();
+    /// <summary>
+    /// Авторы и книги
+    /// </summary>
+    public List<AuthorBook> AuthorBooks { get; set; } = new List<AuthorBook>();
     /// <summary>
     /// Рейтинг - не обязательное поле Null
     /// </summary>
