@@ -5,3 +5,11 @@
 /src/Project/Web/Models
 /.vs/BookStore
 /build
+/src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/obj
+/src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/BookStore.Feature.CheckoutHistorys.sln
+/src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/bin/Debug/net5.0
+/src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/.vs/BookStore.Feature.CheckoutHistorys
+/src/Foundation/Data/BookStore.Data.DataDB/obj
+/src/Foundation/Data/BookStore.Data.DataDB/BookStore.Data.DataDB.sln
+/src/Foundation/Data/BookStore.Data.DataDB/bin/Debug/net5.0
+/src/Foundation/Data/BookStore.Data.DataDB/.vs/BookStore.Data.DataDB
