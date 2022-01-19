@@ -5,3 +5,7 @@
 /src/Project/Web/Models
 /.vs/BookStore
 /build
+/src/Foundation/Data/BookStore.Data.DataDB/.vs/BookStore.Data.DataDB
+/src/Foundation/Data/BookStore.Data.DataDB/obj
+/src/Foundation/Data/BookStore.Data.DataDB/bin/Debug/net5.0
+/src/Foundation/Data/BookStore.Data.DataDB/BookStore.Data.DataDB.sln
