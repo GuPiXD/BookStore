@@ -11,7 +11,13 @@
   <title>Книжный магазин</title>
 </head>
 <body>
-  <div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li>@Html.ActionLink("Books", "Index", "Books", new { area = "" }, null)</li>
+      <li>@Html.ActionLink("Authors", "Index", "Authors", new { area = "" }, null)</li>
+      <li>@Html.ActionLink("Clients", "Index", "Clients", new { area = "" }, null)</li>
+      <li>@Html.ActionLink("History", "Index", "CheckoutHistories", new { area = "" }, null)</li>
+    </ul>
   </div>
 </body>
 </html>

@@ -5,7 +5,7 @@ using BookStore.Data.DataDB.BL.DTOs;
 
 namespace BookStore.Data.DataDB.BL
 {
-  class MappingProfileDTOToModel : Profile
+  public class MappingProfileDTOToModel : Profile
   {
     public MappingProfileDTOToModel()
     {
