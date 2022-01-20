@@ -1,5 +1,3 @@
-using BookStore.Data;
-using BookStore.Web.BookStore.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +28,6 @@ namespace BookStore
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
-      services.AddDbContext<BookContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
       services.AddControllersWithViews();
     }
 
