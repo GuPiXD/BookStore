@@ -11,6 +11,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BookStore.Feature.Authors.App_Start;
+using BookStore.Feature.Books.App_Start;
+using BookStore.Feature.CheckoutHistorys.App_Start;
+using BookStore.Feature.Clients.App_Start;
+using BookStore.Data.DataDB.BL;
+using BookStore.Data.DataDB.DAL;
 
 namespace BookStore
 {
@@ -27,7 +34,22 @@ namespace BookStore
     // Для подключения служб
     public void ConfigureServices(IServiceCollection services)
     {
+      var mapperConfig = new MapperConfiguration(mc => { mc.AddProfile<MappingProfileDTOToModel>();
+                                                         mc.AddProfile<MappingProfileClientDTOToViewModel>();
+                                                         mc.AddProfile<MappingProfileBookDTOToViewModel>();
+                                                         mc.AddProfile<MappingProfileAuthorDTOToViewModel>();
+                                                         mc.AddProfile<MappingProfileCheckoutHistoryDTOToViewModel>();
+                                                       });
+      IMapper mapper = mapperConfig.CreateMapper();
+
+      services.AddDbContext<BookLibraryDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+      services.AddSingleton(mapper);
+
       services.AddMvc();
+
       services.AddControllersWithViews();
     }
 

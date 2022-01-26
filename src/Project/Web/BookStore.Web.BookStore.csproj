@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Feature\Authors\BookStore.Feature.Authors\BookStore.Feature.Authors.csproj" />
+    <ProjectReference Include="..\..\Feature\Books\BookStore.Feature.Books\BookStore.Feature.Books.csproj" />
+    <ProjectReference Include="..\..\Feature\CheckoutHistorys\BookStore.Feature.CheckoutHistorys\BookStore.Feature.CheckoutHistorys.csproj" />
+    <ProjectReference Include="..\..\Feature\Clients\BookStore.Feature.Clients\BookStore.Feature.Clients.csproj" />
     <ProjectReference Include="..\..\Foundation\Data\BookStore.Data.DataDB\BookStore.Data.DataDB.csproj" />
   </ItemGroup>
 
