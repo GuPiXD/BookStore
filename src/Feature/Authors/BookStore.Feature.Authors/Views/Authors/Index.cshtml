@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BookStore.Feature.Authors.Models.IndexViewModel>
+@{ 
+  ViewBag.Title = "Index";
+}
+
+<h2>Authors</h2>
+@Html.ActionLink("Add", "New", "Authors", new { @class = "btn btn-primary" })
+<table id="authors" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Author Name</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  @foreach (var author in Model)
+   {
+      <tr>
+          <td>@author.FullName</td>
+          @{ 
+            var authorRating = (author.Rating == null ? "None" : author.Rating.ToString());
+            <td>@authorRating</td> 
+          }
+          <td>
+            @Html.ActionLink("View", "Details", "Authors", new { id = author.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Edit", "Edit", "Authors", new { id = author.Id }, new { @class = "btn btn-primary" })
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@author.Id">
+              Delete
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="@author.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deleting Author Entry</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete "@author.FullName" entry?
+                  </div>
+                  <div class="modal-footer">
+                    <!--Forcing a post method with an Id parameter-->
+                    <form method="post" action="/Authors/Delete">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <input type="hidden" id="Id" name="Id" value=@author.Id>
+                      <button type="submit" class="btn btn-primary">Yes</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+      </tr>
+   }
+</table>
