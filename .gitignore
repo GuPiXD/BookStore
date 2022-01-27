@@ -5,6 +5,10 @@
 /src/Project/Web/Models
 /.vs/BookStore
 /build
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/bootstrap
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery-validation
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery-validation-unobtrusive
 /src/Foundation/Data/BookStore.Data.DataDB/.vs/BookStore.Data.DataDB
 /src/Foundation/Data/BookStore.Data.DataDB/obj
 /src/Foundation/Data/BookStore.Data.DataDB/bin/Debug/net5.0
