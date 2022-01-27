@@ -1,7 +1,8 @@
-﻿
+﻿using System;
+
 namespace BookStore.Data.DataDB.BL
 {
-  interface IUnitOfWork
+  public interface IUnitOfWork : IDisposable
   {
     AuthorRepository authors();
 

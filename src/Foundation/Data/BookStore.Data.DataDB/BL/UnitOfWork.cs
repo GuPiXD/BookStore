@@ -4,7 +4,7 @@ using BookStore.Data.DataDB.DAL;
 
 namespace BookStore.Data.DataDB.BL
 {
-  class UnitOfWork : IUnitOfWork
+  public class UnitOfWork : IUnitOfWork
   {
     private BookLibraryDbContext context;
     private IMapper mapper;
