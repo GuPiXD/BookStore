@@ -1,0 +1,28 @@
+﻿@model BookStore.Feature.Books.Models.CheckoutFormViewModel
+@{ 
+  ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+<p>
+    Checking out @Html.ActionLink(Model.Name, "Details", "Books", new { ISBN = Model.ISBN }, new { }) written by
+    @{
+      foreach (var author in Model.Authors)
+      {
+        <b>@author.FullName | </b>
+       }
+    }
+</p>
+
+@using (Html.BeginForm("Checkout", "Books"))
+{
+    <div class="form-group">
+      @Html.LabelFor(a => a.ClientId)
+      @Html.DropDownListFor(a => a.ClientId, new SelectList(Model.Clients, "Id", "FullName"), "None selected", new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.ClientId)
+    </div>
+    @Html.HiddenFor(a => a.ISBN)
+    @Html.HiddenFor(a => a.Name)
+
+    @Html.ActionLink("Cancel", "Index", "Books", new { @class = "btn btn-primary" }) <button type="submit" class="btn btn-primary">Check-Out</button>
+}
