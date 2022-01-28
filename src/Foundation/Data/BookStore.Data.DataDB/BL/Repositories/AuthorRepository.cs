@@ -22,7 +22,7 @@ namespace BookStore.Data.DataDB.BL
 
     public void Create(AuthorDTO authorDTO)
     {
-      //Должно работать, потому что мы создаем новую запись, а значение int по умолчанию равно 0, поэтому int Id должен быть равен 0.
+      authorDTO.Id = Guid.NewGuid().ToString();
       context.Authors.Add(mapper.Map<AuthorDTO, Author>(authorDTO));
     }
 
