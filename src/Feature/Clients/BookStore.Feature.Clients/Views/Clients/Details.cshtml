@@ -1,0 +1,16 @@
+﻿@model BookStore.Feature.Clients.Models.DetailsViewModel
+
+@{
+  ViewData["Title"] = "Details";
+}
+
+<h2>@Model.FullName</h2>
+<ul>
+  <li>Address : @Model.Address</li>
+  <li>E-mail : @Model.Email</li>
+  <li>Phone : @Model.Phone</li>
+  @{ var job = (Model.Job == null ? "Not specified" : Model.Job);
+    <li>Job : @job</li>
+  }
+  @Html.ActionLink("Back", "Index", "Clients", new { @class = "btn btn-primary" })
+</ul>

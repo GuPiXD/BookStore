@@ -6,9 +6,8 @@ namespace BookStore.Data.DataDB.DAL
 {
   public class BookLibraryDbContext : DbContext
   {
-    public BookLibraryDbContext() : base(new DbContextOptionsBuilder<BookLibraryDbContext>().UseSqlServer( new ConfigurationManager().GetConnectionString("Connection")).Options)
+    public BookLibraryDbContext(DbContextOptions<BookLibraryDbContext> options) : base(options)
     {
-
     }
     public DbSet<Book> Books { get; set; }
     public DbSet<Person> People { get; set; }

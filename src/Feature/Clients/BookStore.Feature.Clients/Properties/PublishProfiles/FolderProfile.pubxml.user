@@ -5,6 +5,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\JOB\MiniPrograms\S\BookStore\build</_PublishTargetUrl>
+<<<<<<< HEAD
     <History>True|2022-01-27T10:07:34.7151120Z;True|2022-01-27T10:23:36.1552419+03:00;True|2022-01-26T17:30:00.2068672+03:00;</History>
+=======
+    <History>True|2022-01-27T07:23:36.1552419Z;True|2022-01-26T17:30:00.2068672+03:00;</History>
+>>>>>>> 0ae263cb90186afc75bab651df3dadadf226a703
   </PropertyGroup>
 </Project>

@@ -5,6 +5,10 @@
 /src/Project/Web/Models
 /.vs/BookStore
 /build
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/bootstrap
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery-validation
+/src/Feature/Authors/BookStore.Feature.Authors/wwwroot/lib/jquery-validation-unobtrusive
 /src/Foundation/Data/BookStore.Data.DataDB/.vs/BookStore.Data.DataDB
 /src/Foundation/Data/BookStore.Data.DataDB/obj
 /src/Foundation/Data/BookStore.Data.DataDB/bin/Debug/net5.0
@@ -25,6 +29,7 @@
 /src/Feature/Authors/BookStore.Feature.Authors/BookStore.Feature.Authors.sln
 /src/Feature/Authors/BookStore.Feature.Authors/bin/Debug/net5.0
 /src/Feature/Authors/BookStore.Feature.Authors/.vs/BookStore.Feature.Authors
+<<<<<<< HEAD
 /src/Foundation/Data/BookStore.Data.DataDB/bin/Release/net5.0/ref
 /src/Foundation/Data/BookStore.Data.DataDB/bin/Release/net5.0
 /src/Feature/Authors/BookStore.Feature.Authors/bin/Release/net5.0
@@ -33,3 +38,10 @@
 /src/Feature/Authors/BookStore.Feature.Authors/wwwroot/js
 /src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/bin/Release/net5.0
 /src/Feature/Clients/BookStore.Feature.Clients/bin/Release/net5.0
+=======
+/src/Feature/Authors/BookStore.Feature.Authors/bin/Release/net5.0
+/src/Feature/Books/BookStore.Feature.Books/bin/Release/net5.0
+/src/Feature/CheckoutHistorys/BookStore.Feature.CheckoutHistorys/bin/Release/net5.0
+/src/Feature/Clients/BookStore.Feature.Clients/bin/Release/net5.0
+/src/Foundation/Data/BookStore.Data.DataDB/bin/Release/net5.0
+>>>>>>> 0ae263cb90186afc75bab651df3dadadf226a703

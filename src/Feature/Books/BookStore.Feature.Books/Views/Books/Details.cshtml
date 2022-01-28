@@ -1,0 +1,46 @@
+﻿@model BookStore.Feature.Books.Models.DetailsViewModel
+@{ ViewBag.Title = "Details"; }
+
+<h2>@Model.Name</h2>
+@{ 
+  if (Model.Name != null)
+  {
+      using (Html.BeginForm("Details", "Books", FormMethod.Post, new { id = "imageForm" }))
+      {
+            <div>
+              @Html.HiddenFor(b => b.ISBN)
+              @Html.HiddenFor(b => b.NumberStock)
+              @Html.HiddenFor(b => b.NumberPages)
+              @Html.HiddenFor(b => b.Name)
+            </div>
+      }
+  }
+  else
+  {
+    <b>NO IMAGE UPLOADED</b> 
+  } 
+}
+<ul>
+  <li>Number in stock : @Model.NumberStock</li>
+  <li>Number of pages : @Model.NumberPages</li>
+  <li>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Authors
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @foreach (var author in Model.Authors)
+         {
+            <div class="dropdown-item">@author.FullName</div>
+            <div class="dropdown-divider"></div>
+         }
+      </div>
+    </div>
+  </li>
+  @Html.ActionLink("Back", "Index", "Books", new { @class = "btn btn-primary" })
+</ul>
+@section scripts 
+{
+  <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+  <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

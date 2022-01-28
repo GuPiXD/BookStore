@@ -1,0 +1,69 @@
+﻿@model BookStore.Feature.Books.Models.BookFormViewModel
+
+@{ ViewBag.Title = "BookForm"; }
+
+@{ 
+  if (!ViewBag.DoesExist)
+  {
+      <h2>New Book</h2> 
+  }
+  else
+  {
+      <h2>Edit Book</h2>
+      <p>
+          Authors already attached to this book
+          @{ 
+              foreach (var author in Model.Authors)
+              {
+                 <b>@author.FullName | </b> 
+              } 
+          }
+      </p> 
+  } 
+}
+@using (Html.BeginForm("Save", "Books", FormMethod.Post, new { enctype = "multipart/form-data", id = "bookForm" }))
+{
+    if (ViewBag.DoesExist)
+    {
+        @Html.HiddenFor(b => b.ISBN) 
+    }
+    else
+    {
+      <div class="form-group">
+        @Html.LabelFor(b => b.ISBN)
+        @Html.TextBoxFor(b => b.ISBN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.ISBN)
+      </div> 
+    }
+    <div class="form-group">
+      @Html.LabelFor(b => b.Name)
+      @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.Name)
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(b => b.AuthorId)
+      @Html.ListBoxFor(b => b.AuthorId, new MultiSelectList(ViewBag.AuthorsList, "Id", "FullName"), new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.AuthorId)
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(b => b.NumberStock)
+      @Html.TextBoxFor(b => b.NumberStock, new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.NumberStock)
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(b => b.NumberPages)
+      @Html.TextBoxFor(b => b.NumberPages, new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.NumberPages)
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(b => b.PublishingHouse.Name)
+      @Html.TextBoxFor(b => b.PublishingHouse.Name, new { @class = "form-control" })
+      @Html.ValidationMessageFor(a => a.PublishingHouse.Name)
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@section scripts
+{
+  <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+  <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
