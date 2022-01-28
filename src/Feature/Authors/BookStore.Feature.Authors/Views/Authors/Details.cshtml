@@ -1,0 +1,25 @@
+﻿@model BookStore.Feature.Authors.Models.DetailsViewModel
+@{ ViewBag.Title = "Details"; }
+
+<h2>@Model.FullName</h2>
+<ul>
+  <li>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Books
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          @foreach (var book in Model.Books)
+          {
+            <a class="dropdown-item" href="#">@book.Name</a>
+            <div class="dropdown-divider"></div>
+          }
+      </div>
+    </div>
+  </li>
+  @{
+     var rating = (Model.Rating == null ? "None" : Model.Rating.ToString());
+     <li>Rating : @rating</li>
+  }
+  @Html.ActionLink("Back", "Index", "Authors", new { @class = "btn btn-primary" })
+</ul>

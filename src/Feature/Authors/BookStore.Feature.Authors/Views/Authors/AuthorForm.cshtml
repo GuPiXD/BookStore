@@ -1,0 +1,35 @@
+﻿@model BookStore.Feature.Authors.Models.FormViewModel
+@{ 
+  ViewBag.Title = "AuthorForm"; 
+}
+
+@{ 
+  if (Model.Id == "0")        
+  {
+    <h2>New Author</h2> 
+  }
+  else        
+  {
+    <h2>Edit Author</h2> 
+  } 
+}
+@using (Html.BeginForm("Save", "Authors"))
+{
+    <div class="form-group">
+        @Html.LabelFor(a => a.FirstName)
+        @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control", placeholder = "John" })
+        @Html.ValidationMessageFor(a => a.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.LastName)
+        @Html.TextBoxFor(a => a.LastName, new { @class = "form-control", placeholder = "Doe" })
+        @Html.ValidationMessageFor(a => a.LastName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Rating)
+        @Html.DropDownListFor(a => a.Rating, new SelectList(new List<byte> { 1, 2, 3, 4, 5 }), "None", new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Rating)
+    </div>
+    @Html.HiddenFor(a => a.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
