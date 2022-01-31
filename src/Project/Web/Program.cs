@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.Data.DataDB.DAL;
+using BookStore.Data.DataDB;
 
 namespace BookStore
 {
@@ -15,6 +17,21 @@ namespace BookStore
     public static void Main(string[] args)
     {
       var host = CreateHostBuilder(args).Build();
+      using (var scope = host.Services.CreateScope())
+      {
+        var services = scope.ServiceProvider;
+
+        try
+        {
+          var context = services.GetRequiredService<BookLibraryDbContext>();
+          SampleData.Initialize(context);
+        }
+        catch (Exception ex)
+        {
+          var logger = services.GetRequiredService<ILogger<Program>>();
+          logger.LogError(ex, "An error occurred seeding the DB.");
+        }
+      }
       host.Run();
     }
 

@@ -8,6 +8,7 @@ namespace BookStore.Data.DataDB.DAL
   {
     public BookLibraryDbContext(DbContextOptions<BookLibraryDbContext> options) : base(options)
     {
+      Database.EnsureCreated();
     }
     public DbSet<Book> Books { get; set; }
     public DbSet<Person> People { get; set; }

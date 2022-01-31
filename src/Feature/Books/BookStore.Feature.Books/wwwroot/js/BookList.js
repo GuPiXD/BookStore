@@ -1,9 +1,11 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function ()
+{
   //Amount of Book entries to skip, when fetching the next n Books is skip*n
   var skip = 1;
   //Getting total amount of Book entries
   var amount;
-  $.ajax({
+  $.ajax(
+  {
     url: "/api/Books",
     type: "GET",
     success: function (data) {
@@ -29,16 +31,20 @@
     .append(table);
   //Making ajax request to get list of books. On a successful request the table stencil will be filled with content   
   var books;
-  $.ajax({
+  $.ajax(
+  {
     url: "/api/Books?skip=0",
     type: "GET",
-    success: function (data) {
+    success: function (data)
+    {
       books = data;
     },
-    complete: function () {
+    complete: function ()
+    {
       BuildBookHead();
       BuildBookTable(books);
-      if ($("#books tbody tr").length < amount) {
+      if ($("#books tbody tr").length < amount)
+      {
         $(divBook).append("<button class='btn btn-primary js-load'>Load More</button>");
       }
     },
