@@ -24,7 +24,8 @@ namespace BookStore
         try
         {
           var context = services.GetRequiredService<BookLibraryDbContext>();
-          SampleData.Initialize(context);
+          if (!context.Books.Any() && !context.Authors.Any() && !context.PublishingHouses.Any() && !context.Clients.Any())
+            SampleData.Initialize(context);
         }
         catch (Exception ex)
         {

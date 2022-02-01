@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BookStore.Data.DataDB.DAL.Models;
 using BookStore.Data.DataDB.DAL;
 
@@ -12,17 +9,35 @@ namespace BookStore.Data.DataDB
   {
     public static void Initialize(BookLibraryDbContext context)
     {
-      InitializeClients(context);
-      InitializeBooks(context);
-      if (!context.Books.Any() && !context.Authors.Any() && !context.PublishingHouses.Any() && !context.Clients.Any())
-        context.SaveChanges();
+      InitializeData(context);      
+      context.SaveChanges();
     }
 
 
-    private static void InitializeBooks(BookLibraryDbContext context)
+    private static void InitializeData(BookLibraryDbContext context)
     {
-      if (!context.Books.Any() && !context.Authors.Any() && !context.PublishingHouses.Any())
-      {
+        var ivanov = new Client
+                     {
+                       Id = Guid.NewGuid(),
+                       Address = "г.Коломна,Учебный переулок, дом 100, кв. 15",
+                       Email = "IvanovII@yandex.ru",
+                       Phone = "+7(915)351-56-41",
+                       FirstName = "Ivan",
+                       LastName = "Ivanov",
+                       Job = "Intern",
+                     
+                     };
+        var andreevich = new Client
+                         {
+                           Id = Guid.NewGuid(),
+                           Address = "г.Москва,ул. Мира, дом 15, кв. 100",
+                           Email = "IvanovII@yandex.ru",
+                           Phone = "+7(960)595-22-11",
+                           FirstName = "Andrey",
+                           LastName = "Andreevich",
+                         };
+
+        context.Clients.AddRange(ivanov, andreevich);
 
         var ACT = new PublishingHouse { Id = Guid.NewGuid(), Name = "АСТ" };
         var AbcSP = new PublishingHouse { Id = Guid.NewGuid(), Name = "Азбука СПб" };
@@ -45,7 +60,7 @@ namespace BookStore.Data.DataDB
         {
           PublishingHouse = AbcSP,
           NumberPages = 272,
-
+          Authors = new List<Author>() { gaiman },
           ISBN = "978-5-389-09098-9",
           Name = "The Sandman. Песочный человек. Книга 1. Прелюдии и ноктюрны",
           Price = 934d
@@ -54,6 +69,7 @@ namespace BookStore.Data.DataDB
         {
           PublishingHouse = AbcSP,
           NumberPages = 320,
+          Authors = new List<Author>() { gaiman },
           ISBN = "978-5-17-119215-0",
           Name = "Скандинавские боги",
           Price = 452d
@@ -62,6 +78,7 @@ namespace BookStore.Data.DataDB
         {
           PublishingHouse = ACT,
           NumberPages = 416,
+          Authors = new List<Author>() { pratchett },
           ISBN = "978-5-699-16835-4",
           Name = "Пирамиды",
           Price = 452d
@@ -70,6 +87,7 @@ namespace BookStore.Data.DataDB
         {
           PublishingHouse = ACT,
           NumberPages = 384,
+          Authors = new List<Author>() { pratchett },
           ISBN = "978-5-699-22357-2",
           Name = "Мор, ученик Смерти",
           Price = 452d
@@ -81,46 +99,17 @@ namespace BookStore.Data.DataDB
 
         context.CheckoutHistories.Add(new CheckoutHistory
         {
-          Book = context.Books.SingleOrDefault(t => t.Name == "Скандинавские боги"),
-          Client = context.Clients.SingleOrDefault(t => t.LastName == "Ivanov"),
+          Book = scandinavianGods,
+          Client = ivanov,
           CheckoutDate = DateTime.Now
         });
 
         context.CheckoutHistories.Add(new CheckoutHistory
         {
-          Book = context.Books.SingleOrDefault(t => t.ISBN == "978-5-699-16835-4"),
-          Client = context.Clients.SingleOrDefault(t => t.LastName == "Ivanov"),
+          Book = pyramids,
+          Client = ivanov,
           CheckoutDate = DateTime.Now
-        });
-      }
-    }
-
-    private static void InitializeClients(BookLibraryDbContext context)
-    {
-      if (!context.Clients.Any())
-      {
-        context.Clients.AddRange(new Client
-        {
-          Id = Guid.NewGuid(),
-          Address = "г.Коломна,Учебный переулок, дом 100, кв. 15",
-          Email = "IvanovII@yandex.ru",
-          Phone = "+7(915)351-56-41",
-          FirstName = "Ivan",
-          LastName = "Ivanov",
-          Job = "Intern",
-
-        },
-        new Client
-        {
-          Id = Guid.NewGuid(),
-          Address = "г.Москва,ул. Мира, дом 15, кв. 100",
-          Email = "IvanovII@yandex.ru",
-          Phone = "+7(960)595-22-11",
-          FirstName = "Andrey",
-          LastName = "Andreevich",
-        }
-       );
-      }
+        });      
     }
   }
 }
